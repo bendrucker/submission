@@ -1,7 +1,7 @@
 {
   "name": "submission",
   "main": "index.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Observable interface for managing submission states",
   "license": "MIT",
   "repository": "bendrucker/submission",
