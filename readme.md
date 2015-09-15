@@ -14,7 +14,7 @@ $ npm install --save form-submit-state
 
 ```js
 var Form = require('form-submit-state')
-var form = form()
+var form = Form()
 
 form.pending()
 //=> false
