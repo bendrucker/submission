@@ -1,0 +1,37 @@
+{
+  "name": "form-state",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Observable interface for managing form submission states",
+  "license": "MIT",
+  "repository": "bendrucker/form-state",
+  "author": {
+    "name": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "keywords": [
+    "form",
+    "state",
+    "submission",
+    "observable"
+  ],
+  "devDependencies": {
+    "next-tick": "~0.2.2",
+    "standard": "^4.0.0",
+    "tape": "^4.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "observ": "~0.2.0",
+    "observ-struct": "~6.0.0",
+    "value-error": "~1.0.0",
+    "weak-error": "~1.0.0",
+    "weakmap-event": "~2.0.6"
+  }
+}
