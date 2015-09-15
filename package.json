@@ -1,7 +1,7 @@
 {
   "name": "form-state",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Observable interface for managing form submission states",
   "license": "MIT",
   "repository": "bendrucker/form-state",
