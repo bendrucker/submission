@@ -1,10 +1,10 @@
 {
-  "name": "form-submit-state",
+  "name": "submission",
   "main": "index.js",
   "version": "1.0.2",
-  "description": "Observable interface for managing form submission states",
+  "description": "Observable interface for managing submission states",
   "license": "MIT",
-  "repository": "bendrucker/form-submit-state",
+  "repository": "bendrucker/submission",
   "author": {
     "name": "Ben Drucker",
     "email": "bvdrucker@gmail.com",
@@ -14,7 +14,6 @@
     "test": "standard && tape test.js"
   },
   "keywords": [
-    "form",
     "state",
     "submission",
     "observable"

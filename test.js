@@ -2,45 +2,45 @@
 
 var test = require('tape')
 var nextTick = require('next-tick')
-var Form = require('./')
+var Submission = require('./')
 
 test('success', function (t) {
   t.plan(3)
-  var form = Form()
+  var submission = Submission()
 
-  Form.submit(form, function (callback) {
+  Submission.submit(submission, function (callback) {
     nextTick(function () {
       callback(null, {foo: 'bar'})
     })
   })
 
-  t.equal(form.pending(), true)
+  t.equal(submission.pending(), true)
 
-  Form.onData(form, function onData (data) {
+  Submission.onData(submission, function onData (data) {
     t.deepEqual(data, {foo: 'bar'})
-    t.equal(form.pending(), false)
+    t.equal(submission.pending(), false)
   })
 
-  Form.onError(form, t.fail)
+  Submission.onError(submission, t.fail)
 })
 
 test('error', function (t) {
   t.plan(3)
-  var form = Form()
+  var submission = Submission()
 
-  Form.submit(form, function (callback) {
+  Submission.submit(submission, function (callback) {
     nextTick(function () {
       callback(new Error('oh noes'))
     })
   })
 
-  Form.onError(form, function onError (err) {
+  Submission.onError(submission, function onError (err) {
     t.equal(err.constructor, Error)
     t.equal(err.message, 'oh noes')
-    t.deepEqual(form.error(), {
+    t.deepEqual(submission.error(), {
       message: 'oh noes'
     })
   })
 
-  Form.onData(form, t.fail)
+  Submission.onData(submission, t.fail)
 })

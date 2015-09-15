@@ -6,9 +6,9 @@ var valueError = require('value-error')
 var Event = require('weakmap-event')
 var WeakError = require('weak-error')
 
-module.exports = Form
+module.exports = Submission
 
-function Form (data) {
+function Submission (data) {
   data = data || {}
 
   return Struct({
@@ -17,7 +17,7 @@ function Form (data) {
   })
 }
 
-Form.submit = function submit (state, fn) {
+Submission.submit = function submit (state, fn) {
   state.pending.set(true)
   fn(createHandler(state))
 }
@@ -25,8 +25,8 @@ Form.submit = function submit (state, fn) {
 var DataEvent = Event()
 var ErrorEvent = WeakError()
 
-Form.onData = DataEvent.listen
-Form.onError = ErrorEvent.listen
+Submission.onData = DataEvent.listen
+Submission.onError = ErrorEvent.listen
 
 function createHandler (state) {
   return function onResult (err, data) {

@@ -1,65 +1,65 @@
-# form-submit-state [![Build Status](https://travis-ci.org/bendrucker/form-submit-state.svg?branch=master)](https://travis-ci.org/bendrucker/form-submit-state)
+# submission [![Build Status](https://travis-ci.org/bendrucker/submission.svg?branch=master)](https://travis-ci.org/bendrucker/submission)
 
-> Observable interface for managing form submission states
+> Observable interface for managing submission submission states
 
 
 ## Install
 
 ```
-$ npm install --save form-submit-state
+$ npm install --save submission
 ```
 
 
 ## Usage
 
 ```js
-var Form = require('form-submit-state')
-var form = Form()
+var Submission = require('submission')
+var submission = Submission()
 
-form.pending()
+submission.pending()
 //=> false
 
-form.error()
+submission.error()
 //=> null
 
-Form.submit(form, function (callback) {
-  //=> form.pending() === true
+Submission.submit(submission, function (callback) {
+  //=> submission.pending() === true
   submit(callback)
 })
 
 function submit (callback) {
-  //=> submit form data to server
+  //=> submit data to server
   //=> call callback w/ err, data
 }
 
-Form.onData(form, console.log)
+Submission.onData(submission, console.log)
 //=> data
 
-Form.onError(form, console.log)
+Submission.onError(submission, console.log)
 //=> null / Error
 ```
 
 ## API
 
-#### `Form([data])` -> `function`
+#### `Submission([data])` -> `function`
 
-Returns an observable form state.
+Returns an observable submission state.
 
 ##### data
 
 Type: `object`
 Default: `{pending: false, error: null}`
 
-The initial form state.
+The initial submission state.
 
-#### `Form.submit(state, fn)` -> `undefined`
+#### `Submission.submit(state, fn)` -> `undefined`
 
 ##### state
 
 *Required*  
 Type: `function`
 
-A form state observable.
+A submission state observable.
 
 ##### fn
 
@@ -67,27 +67,9 @@ A form state observable.
 Type: `function`  
 Arguments: `callback`
 
-A function to call to trigger form submission. The function will receive a callback that will update the form state and trigger events based on the result.
+A function to call to trigger submission. The function will receive a callback that will update the submission state and trigger events based on the result.
 
-#### `Form.onData(state, listener)` -> `function`
-
-Returns a function that removes the event listener.
-
-##### state
-
-*Required*  
-Type: `function`
-
-A form state observable.
-
-##### listener
-
-*Required*  
-Type: `function`
-
-A function to be called with the submission data passed back from the function provided to `Form.submit`.
-
-#### `Form.onError(state, listener)` -> `function`
+#### `Submission.onData(state, listener)` -> `function`
 
 Returns a function that removes the event listener.
 
@@ -96,14 +78,32 @@ Returns a function that removes the event listener.
 *Required*  
 Type: `function`
 
-A form state observable.
+A submission state observable.
 
 ##### listener
 
 *Required*  
 Type: `function`
 
-A function to be called with an error passed back from the function provided to `Form.submit`.
+A function to be called with the submission data passed back from the function provided to `Submission.submit`.
+
+#### `Submission.onError(state, listener)` -> `function`
+
+Returns a function that removes the event listener.
+
+##### state
+
+*Required*  
+Type: `function`
+
+A submission state observable.
+
+##### listener
+
+*Required*  
+Type: `function`
+
+A function to be called with an error passed back from the function provided to `Submission.submit`.
 
 ## License
 
