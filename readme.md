@@ -1,4 +1,4 @@
-# form-state [![Build Status](https://travis-ci.org/bendrucker/form-state.svg?branch=master)](https://travis-ci.org/bendrucker/form-state)
+# form-submit-state [![Build Status](https://travis-ci.org/bendrucker/form-submit-state.svg?branch=master)](https://travis-ci.org/bendrucker/form-submit-state)
 
 > Observable interface for managing form submission states
 
@@ -6,14 +6,14 @@
 ## Install
 
 ```
-$ npm install --save form-state
+$ npm install --save form-submit-state
 ```
 
 
 ## Usage
 
 ```js
-var Form = require('form-state')
+var Form = require('form-submit-state')
 var form = form()
 
 form.pending()
