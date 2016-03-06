@@ -18,6 +18,7 @@ function Submission (data) {
 }
 
 Submission.submit = function submit (state, fn) {
+  if (state.pending()) return
   state.pending.set(true)
   fn(createHandler(state))
 }
