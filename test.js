@@ -44,3 +44,34 @@ test('error', function (t) {
 
   Submission.onData(submission, t.fail)
 })
+
+test('error then success', function (t) {
+  var submission = Submission()
+
+  submit(new Error('oh noes'))
+
+  Submission.onError(submission, function onError (err) {
+    t.equal(err.constructor, Error)
+    t.equal(err.message, 'oh noes')
+    t.deepEqual(submission.error(), {
+      message: 'oh noes'
+    })
+
+    submit(null, 'winning')
+    t.equal(submission.error(), null)
+
+    Submission.onData(submission, function (data) {
+      t.equal(data, 'winning')
+      t.equal(submission.error(), null)
+      t.end()
+    })
+  })
+
+  function submit (error, data) {
+    Submission.submit(submission, function (callback) {
+      nextTick(function () {
+        callback(error, data)
+      })
+    })
+  }
+})
