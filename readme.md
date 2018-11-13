@@ -1,4 +1,4 @@
-# submission [![Build Status](https://travis-ci.org/bendrucker/submission.svg?branch=master)](https://travis-ci.org/bendrucker/submission)
+# submission [![Build Status](https://travis-ci.org/bendrucker/submission.svg?branch=master)](https://travis-ci.org/bendrucker/submission) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/submission.svg)](https://greenkeeper.io/)
 
 > Observable interface for managing submission submission states
 
